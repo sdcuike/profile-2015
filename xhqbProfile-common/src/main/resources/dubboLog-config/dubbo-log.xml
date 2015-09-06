@@ -1,0 +1,18 @@
+<included>
+  <appender name="dubboAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/dubbo-logs.xml.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/dubbo-log.xml.log.out.%d{yyyy-MM-dd}
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%-16(%d{MM-dd HH:mm:ss}) %-5thread %-5level %logger -%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="com.alibaba.dubbo" level="info" additivity="false" >  
+        <appender-ref ref="dubboAppender" />  
+        <appender-ref ref="stdout" />
+    </logger>
+    
+</included>

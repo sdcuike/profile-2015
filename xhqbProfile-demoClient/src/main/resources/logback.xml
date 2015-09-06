@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="dubboLog-config/dubbo-elapsedTime.xml" />
+    <include resource="dubboLog-config/dubbo-log.xml" />
+    <include resource="common-log/spring-log.xml" />
+    <include resource="common-log/zookeeper-log.xml" />
+    
+    <include resource="spring-aop/aop-elapsedTime.xml" />
+    
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8">
+			<pattern>%d{MM-dd HH:mm:ss.SSS} %-5thread %-5level %logger -	%msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="defaultAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/xhqbProfileDemo-client.xml.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/xhqbProfileDemo-client.xml.log.out.%d{yyyy-MM-dd}
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%-16(%d{MM-dd HH:mm:ss}) %-5thread %-5level %logger -%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="businessAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/xhqbProfileDemo-client-business.xml.log</file>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">  
+           <level>ERROR</level>  
+           <onMatch>DENY</onMatch>  
+           <onMismatch>NEUTRAL</onMismatch>  
+         </filter> 
+		<filter class="com.xhqb.profile.slf4j.extend.filter.MarkerFilter">
+            <marker>YOUR_MARKER</marker>
+            <onMatch>DENY</onMatch>
+            <onMismatch>NEUTRAL</onMismatch>
+        </filter>
+        
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/xhqbProfileDemo-client-business.xml.log.out.%d{yyyy-MM-dd}
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%-16(%d{MM-dd HH:mm:ss}) %-5thread %-5level %logger -%msg%n</pattern>
+		</encoder>
+		
+	</appender>
+
+    <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/xhqbProfileDemo-client-error.xml.log</file>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">  
+           <level>ERROR</level>  
+           <onMatch>ACCEPT</onMatch>  
+           <onMismatch>DENY</onMismatch>  
+         </filter> 
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/xhqbProfileDemo-client-error.xml.log.out.%d{yyyy-MM-dd}
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%-16(%d{MM-dd HH:mm:ss}) %-5thread %-5level %logger -%msg%n</pattern>
+		</encoder>
+		
+	</appender>
+
+
+ <appender name="otherAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/xhqbProfileDemo-client-other.xml.log</file>
+		<filter class="com.xhqb.profile.slf4j.extend.filter.MarkerFilter">
+            <marker>YOUR_MARKER</marker>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/xhqbProfileDemo-client-other.xml.log.out.%d{yyyy-MM-dd}
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%-16(%d{MM-dd HH:mm:ss}) %-5thread %-5level %logger -%msg%n</pattern>
+		</encoder>
+		
+	</appender>
+	
+	
+    <logger name="com.xhqb.business.service.client.impl" level="info" additivity="false" >  
+        <appender-ref ref="businessAppender" />  
+        <appender-ref ref="errorAppender" />  
+        <appender-ref ref="otherAppender" />  
+    </logger>
+    
+
+	<root level="info">
+		<appender-ref ref="stdout" />
+	</root>
+</configuration> 
