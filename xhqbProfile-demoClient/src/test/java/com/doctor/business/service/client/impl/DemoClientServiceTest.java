@@ -28,18 +28,8 @@ public class DemoClientServiceTest {
 
 	@Test
 	public void testGetName() throws InterruptedException {
-		for (int i = 0; i < 10; i++) {
-			executorService.submit(new Runnable() {
+		System.err.println(demoService.getName("ss", "man"));
 
-				@Override
-				public void run() {
-					System.err.println(demoService.getName());
-
-				}
-			});
-		}
-		System.err.println(demoService.getName());
-		executorService.shutdown();
 	}
 
 }

@@ -20,7 +20,7 @@ public class DemoServiceImpl implements DemoService {
 	private static Logger log = LoggerFactory.getLogger(DemoServiceImpl.class);
 
 	@Override
-	public String getName() {
+	public String getName(String name, String sex) {
 		log.info("模拟 业务日志");
 		log.error("模拟异常日志", new RuntimeException("模拟异常日志"));
 		try {
@@ -28,7 +28,7 @@ public class DemoServiceImpl implements DemoService {
 		} catch (InterruptedException e) {
 			log.error("error", e);
 		}
-		return "doctor who";
+		return "返回值";
 	}
 
 }

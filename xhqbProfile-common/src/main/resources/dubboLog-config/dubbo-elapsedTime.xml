@@ -1,8 +1,8 @@
 <included>
   <appender name="dubboElapsedTimeFilterAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${catalina.home}/logs/dubbo-elapsedTimeFilter.xml.log</file>
+		<file>${APP_LOG_HOME}/logs/${project_home}/dubbo-elapsedTimeFilter.xml.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>${catalina.home}/logs/dubbo-elapsedTimeFilter.xml.log.out.%d{yyyy-MM-dd}
+			<FileNamePattern>${APP_LOG_HOME}/logs/${project_home}/dubbo-elapsedTimeFilter.xml.log.out.%d{yyyy-MM-dd}
 			</FileNamePattern>
 		</rollingPolicy>
 		<encoder>
@@ -12,7 +12,6 @@
 	
 	<logger name="com.xhqb.profile.dubbo.extend.filter" level="info" additivity="false" >  
         <appender-ref ref="dubboElapsedTimeFilterAppender" />  
-        <appender-ref ref="stdout" />
     </logger>
     
 </included>

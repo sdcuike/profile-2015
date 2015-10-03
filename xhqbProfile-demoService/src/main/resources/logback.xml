@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+
+    <variable name="project_home" value="demoService" />
+    
     <include resource="dubboLog-config/dubbo-elapsedTime.xml" />
     <include resource="dubboLog-config/dubbo-log.xml" />
     <include resource="common-log/spring-log.xml" />
@@ -13,9 +16,9 @@
 		</encoder>
 	</appender>
 	<appender name="defaultAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${catalina.home}/logs/clientDeault.xml.log</file>
+		<file>${APP_LOG_HOME}/logs/${project_home}/clientDeault.xml.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>${catalina.home}/logs/clientDeault.xml.log.out.%d{yyyy-MM-dd}
+			<FileNamePattern>${APP_LOG_HOME}/logs/${project_home}/clientDeault.xml.log.out.%d{yyyy-MM-dd}
 			</FileNamePattern>
 		</rollingPolicy>
 		<encoder>
@@ -24,14 +27,14 @@
 	</appender>
 	
 	<appender name="businessAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${catalina.home}/logs/business.xml.log</file>
+		<file>${APP_LOG_HOME}/logs/${project_home}/business.xml.log</file>
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">  
            <level>ERROR</level>  
            <onMatch>DENY</onMatch>  
            <onMismatch>NEUTRAL</onMismatch>  
          </filter> 
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>${catalina.home}/logs/business.xml.log.out.%d{yyyy-MM-dd}
+			<FileNamePattern>${APP_LOG_HOME}/logs/${project_home}/business.xml.log.out.%d{yyyy-MM-dd}
 			</FileNamePattern>
 		</rollingPolicy>
 		<encoder>
@@ -41,7 +44,7 @@
 	</appender>
 
     <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${catalina.home}/logs/error.xml.log</file>
+		<file>${APP_LOG_HOME}/logs/${project_home}/error.xml.log</file>
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">  
            <level>ERROR</level>  
            <onMatch>ACCEPT</onMatch>  
@@ -49,7 +52,7 @@
          </filter> 
 		
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>${catalina.home}/logs/error.xml.log.out.%d{yyyy-MM-dd}
+			<FileNamePattern>${APP_LOG_HOME}/logs/${project_home}/error.xml.log.out.%d{yyyy-MM-dd}
 			</FileNamePattern>
 		</rollingPolicy>
 		<encoder>
@@ -69,5 +72,8 @@
 
 	<root level="info">
 		<appender-ref ref="stdout" />
+         <appender-ref ref="businessAppender" />  
+        <appender-ref ref="errorAppender" />  
+        <appender-ref ref="otherAppender" />  
 	</root>
 </configuration> 

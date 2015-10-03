@@ -1,5 +1,7 @@
 package com.xhqb.profile.spring.aop.method;
 
+import java.util.Arrays;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;
@@ -16,15 +18,17 @@ public class MethodInvokeTimeAspect {
 
 	public Object profile(ProceedingJoinPoint point) throws Throwable {
 		long start = System.currentTimeMillis();
-
+		Object proceed = null;
 		try {
-			return point.proceed();
+			proceed = point.proceed();
+			return proceed;
 
 		} finally {
 
 			long end = System.currentTimeMillis();
 
-			log.info("{} elapsed {} ", point, end - start);
+			Object[] args = point.getArgs();
+			log.info("[{}],{},[{}], [{}] ", point, Arrays.toString(args), proceed, end - start);
 		}
 
 	}

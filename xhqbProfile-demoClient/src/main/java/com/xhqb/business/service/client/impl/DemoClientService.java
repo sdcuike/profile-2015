@@ -22,10 +22,10 @@ public class DemoClientService implements DemoService {
 	private DemoService demoService;
 
 	@Override
-	public String getName() {
+	public String getName(String name, String sex) {
 		log.info("DemoClientService log");
 		log.error("DemoClientService test error log file");
-		return demoService.getName();
+		return demoService.getName("ss", "man");
 	}
 
 }

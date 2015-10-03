@@ -30,9 +30,8 @@ public class ElapsedTimeFilter implements Filter {
 		long elapsed = System.currentTimeMillis() - start;
 		if (invoker.getUrl() != null) {
 
-			log.info("invoke elapsed time. method: " + invocation.getMethodName()
-					+ "arguments: " + Arrays.toString(invocation.getArguments()) + " , url is "
-					+ invoker.getUrl() + ", invoke elapsed " + elapsed + " ms.");
+			// log.info("[" +invoker.getInterface() +"] [" + invocation.getMethodName() +"] [" + elapsed +"]" );
+			log.info("[{}], [{}], {}, [{}], [{}], [{}]   ", invoker.getInterface(), invocation.getMethodName(), Arrays.toString(invocation.getArguments()), result.getValue(), result.getException(), elapsed);
 
 		}
 		return result;
