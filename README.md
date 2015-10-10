@@ -6,7 +6,11 @@
 --   日志路径项目名称设置：
  logback.xml配置的最前面：
  
+ 
+ 
  <variable name="project_home" value="demoService" />
+ 
+ 
  
  value为其当期应用名称。
  
