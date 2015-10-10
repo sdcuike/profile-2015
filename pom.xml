@@ -2,8 +2,8 @@
 	                         http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.xhqb</groupId>
-    <artifactId>xhprofile-parent</artifactId>
+    <groupId>com.profile</groupId>
+    <artifactId>profile-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
@@ -13,9 +13,9 @@
 
     <inceptionYear>2015</inceptionYear>
     <modules>
-        <module>xhprofile-common</module>
-        <module>xhprofile-demo-service</module>
-        <module>xhprofile-demo-client</module>
+        <module>profile-common</module>
+        <module>profile-demo-service</module>
+        <module>profile-demo-client</module>
     </modules>
 
     <properties>
