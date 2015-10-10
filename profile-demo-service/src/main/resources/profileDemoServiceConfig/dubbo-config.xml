@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+       ">
+       
+    <description>profile DemoService  dubbo server</description>
+
+    <!-- Application name -->
+    <dubbo:application id="profileDemoServiceApplication"
+                       name="${profileDemoService.dubbo.application.name}"
+                       owner="${profileDemoService.dubbo.application.owner}"
+                       organization="${profileDemoService.dubbo.application.organization}"
+                       logger="slf4j"
+                       compiler="javassist"/>
+
+
+    <dubbo:protocol id="profileDemoServiceProtocol"
+                    name="${profileDemoService.dubbo.protocol.name}"
+                    port="-1"
+                    dispatcher="${profileDemoService.dubbo.protocol.dispatcher}"
+                    threadpool="${profileDemoService.dubbo.protocol.threadpool}"
+                    threads="${profileDemoService.dubbo.protocol.threads}">
+    </dubbo:protocol>
+
+    <dubbo:registry id="profileDemoServiceRegistry"
+                    protocol="${profileDemoService.dubbo.registry.name}"
+                    address="${profileDemoService.dubbo.registry.address}"
+                    client="${profileDemoService.dubbo.registry.client}"
+                    group="${profileDemoService.dubbo.registry.group}"
+                    session="60000"
+                    register="true"
+                    subscribe="false"
+                    check="true"
+                    file="profileDemoService-registry-cache.properties">
+    </dubbo:registry>
+
+     
+    <dubbo:provider id="profileDemoServiceProvider"
+                    application="profileDemoServiceApplication"
+                    registry="profileDemoServiceRegistry"
+                    protocol="profileDemoServiceProtocol"
+                    cluster="${profileDemoService.dubbo.provider.cluster}"
+                    loadbalance="${profileDemoService.dubbo.provider.loadbalance}"
+                    serialization="${profileDemoService.dubbo.provider.serialization}"
+                    retries="${profileDemoService.dubbo.provider.retries}"
+                    timeout="${profileDemoService.dubbo.provider.timeout}"
+                    proxy="javassist"
+                    delay="-1"
+                    filter="providerElapsedTimeFilter"
+                    >
+    </dubbo:provider>
+</beans>

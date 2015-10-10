@@ -62,7 +62,7 @@
 	</appender>
 
 	
-    <logger name="com.xhqb.business.service.impl" level="info" additivity="false" >  
+    <logger name="com.doctor.business.service.impl" level="info" additivity="false" >  
         <appender-ref ref="businessAppender" />  
         <appender-ref ref="errorAppender" />  
         <appender-ref ref="otherAppender" />  

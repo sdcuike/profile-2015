@@ -12,9 +12,8 @@ import org.slf4j.MDC;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xhqb.business.service.client.impl.DemoClientService;
-import com.xhqb.profile.constant.DubboUrlParameter;
-import com.xhqb.profile.constant.WebConstant;
+import com.doctor.profile.constant.DubboUrlParameter;
+import com.doctor.profile.constant.WebConstant;
 
 /**
  * 
@@ -22,7 +21,7 @@ import com.xhqb.profile.constant.WebConstant;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:/xhqbProfileDemoClientConfig/spring-context.xml")
+@ContextConfiguration("classpath:/profileDemoClientConfig/spring-context.xml")
 public class DemoClientServiceTest {
 
 	@Resource(name = "demoClientService")

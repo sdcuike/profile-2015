@@ -9,12 +9,12 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<aop:aspectj-autoproxy proxy-target-class="true" />
-	<bean id="methodInvokeTimeAspect" class="com.xhqb.profile.spring.aop.method.MethodInvokeTimeAspect" />
+	<bean id="methodInvokeTimeAspect" class="com.doctor.profile.spring.aop.method.MethodInvokeTimeAspect" />
 
 	<aop:config>
 		<aop:aspect ref="methodInvokeTimeAspect">
 			<aop:pointcut id="methodInvokeTimePC"
-				expression=" (execution(public * com.xhqb.business.service.client.impl.*.*(..)) ) or  (execution(public * com.xhqb.business.service.impl.*.*(..)) )  " />
+				expression=" (execution(public * com.doctor.business.service.client.impl.*.*(..)) ) or  (execution(public * com.doctor.business.service.impl.*.*(..)) )  " />
 			<aop:around pointcut-ref="methodInvokeTimePC" method="profile" />
 		</aop:aspect>
 	</aop:config>

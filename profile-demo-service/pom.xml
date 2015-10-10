@@ -18,15 +18,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.xhqb</groupId>
-            <artifactId>xhprofile-common</artifactId>
+            <groupId>com.profile</groupId>
+            <artifactId>profile-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-asm</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>

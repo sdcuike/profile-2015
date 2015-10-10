@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <description>doctor2015BusinessClient dubbo client</description>
+
+    <dubbo:application id="profileDemoClientApplication"
+                       name="${profileDemoClient.dubbo.application.name}"
+                       owner="${profileDemoClient.dubbo.application.owner}"
+                       organization="${profileDemoClient.dubbo.application.organization}"
+                       logger="slf4j"
+                       compiler="javassist"/>
+    
+                    
+    <dubbo:registry id="profileDemoClientRegistry"
+                    protocol="${profileDemoClient.dubbo.registry.name}"
+                    client="${profileDemoClient.dubbo.registry.client}"
+                    address="${profileDemoClient.dubbo.registry.address}"
+                    group="${profileDemoClient.dubbo.registry.group}"
+                    check="${profileDemoClient.dubbo.consumer.check}"
+                    subscribe="true"
+                    file="profileDemoClient-registry-cache.properties">
+    </dubbo:registry>
+
+    <dubbo:consumer id="profileDemoClientConsumer"
+                    application="profileDemoClientApplication"
+                    registry="profileDemoClientRegistry"
+                    init="false"
+                    check="${profileDemoClient.dubbo.consumer.check}"
+                    filter="consumerElapsedTimeFilter"
+                    timeout="${profileDemoClient.dubbo.consumer.timeout}"
+                    retries="0"/>
+                 
+</beans>

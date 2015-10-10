@@ -10,7 +10,7 @@
 		</encoder>
 	</appender>
 	
-	<logger name="com.xhqb.profile.dubbo.extend.filter" level="info" additivity="false" >  
+	<logger name="com.doctor.profile.dubbo.extend.filter" level="info" additivity="false" >  
         <appender-ref ref="dubboElapsedTimeFilterAppender" />  
     </logger>
     

@@ -6,7 +6,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:/xhqbProfileDemoServiceConfig/spring-context.xml</param-value>
+		<param-value>classpath:/profileDemoServiceConfig/spring-context.xml</param-value>
 	</context-param>
 	<listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -34,7 +34,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:/xhqbProfileDemoServiceConfig/springmvc-controller.xml</param-value>
+			<param-value>classpath:/profileDemoServiceConfig/springmvc-controller.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

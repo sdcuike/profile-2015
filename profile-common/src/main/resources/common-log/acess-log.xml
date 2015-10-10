@@ -10,14 +10,14 @@
 		</encoder>
 	</appender>
 	
-	<logger name="com.xhqb.profile.request.filter" level="info" additivity="false" >  
+	<logger name="com.doctor.profile.request.filter" level="info" additivity="false" >  
         <appender-ref ref="accessLogAppender" />  
     </logger>
-	<logger name="com.xhqb.web.security" level="info" additivity="false" >  
+	<logger name="com.doctor.web.security" level="info" additivity="false" >  
         <appender-ref ref="accessLogAppender" />  
     </logger>
     
-	<logger name="com.xhqb.web.security" level="info" additivity="false" >  
+	<logger name="com.doctor.web.security" level="info" additivity="false" >  
         <appender-ref ref="accessLogAppender" />  
     </logger>
     
