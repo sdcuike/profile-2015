@@ -17,10 +17,13 @@
 
 ### 2.引入依赖包（pom）
 
+```
+
             <groupId>com.xhqb.profile</groupId>
             <artifactId>xhqbProfile-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             
+ ```
 
 ### 3.web应用配置过滤器
 
@@ -97,6 +100,8 @@ dubbo的标准配置见例子： xhqbProfile-demoService 项目（见上项目�
 --  .在自己的应用配置文件中配置spring aop配置：
 例如：
 
+```
+
     	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<bean id="methodInvokeTimeAspect" class="com.xhqb.profile.spring.aop.method.MethodInvokeTimeAspect" />
 
@@ -109,18 +114,25 @@ dubbo的标准配置见例子： xhqbProfile-demoService 项目（见上项目�
 	</aop:config>
 
 
+```
+
 expression 换成自己的业务包名。
 
 -- logback.xml引入配置：
 
+   ```
    
   <include resource="spring-aop/aop-elapsedTime.xml" />
+
+```
 
 
 ###6.logback.xml自己定义appender
 
 如果自己在logback.xml中配置了appender，请在pattern 格式处添加：[%X{uuid}] 。
 例如：(加粗字体)
+
+```
 
 <appender name="defaultAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${APP_LOG_HOME}/logs/${project_home}/clientDeault.xml.log</file>
@@ -133,9 +145,12 @@ expression 换成自己的业务包名。
 		</encoder>
 	</appender>
 	
-	
+```
+
 ### 附：
 日志格式摘要：dubbo-elapsedTimeFilter.xml 文件部分内容：
+
+```
 
 消费者：
 10-09 19:52:15   main  INFO  com.xhqb.profile.dubbo.extend.filter.ConsumerElapsedTimeFilter -[a963b1b6-2b4d-43e4-8334-02d424aaa2e8] , [interface com.xhqb.profile.dubbo.service.DemoService], [getName], [ss, man], [返回值], [null], [10102ms]   
@@ -144,5 +159,6 @@ expression 换成自己的业务包名。
 生产者：
 10-09 19:52:15   DubboServerHandler-127.0.0.1:20880-thread-1 INFO  com.xhqb.profile.dubbo.extend.filter.ProviderElapsedTimeFilter -[a963b1b6-2b4d-43e4-8334-02d424aaa2e8|5193c0d3-212e-45dc-80dd-0e9775f5d21a] , [interface com.xhqb.profile.dubbo.service.DemoService], [getName], [ss, man], [返回值], [null], [10020ms]   
 
+```
 
  
