@@ -19,9 +19,9 @@
 
 ```
 
-            <groupId>com.xhqb.profile</groupId>
-            <artifactId>xhqbProfile-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+			       <groupId>com.profile</groupId>
+			       <artifactId>profile-common</artifactId>
+			       <version>1.0.0-SNAPSHOT</version>
             
  ```
 
@@ -33,7 +33,7 @@
 ```
     <filter>
         <filter-name>AccessFilter</filter-name>
-        <filter-class>com.xhqb.profile.request.filter.AccessFilter</filter-class>
+        <filter-class>com.doctor.profile.request.filter.AccessFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AccessFilter</filter-name>
@@ -62,13 +62,13 @@
 ```
 
 --  服务提供方：
-<dubbo:provider id="xhqbProfileDemoServiceProvider"
+<dubbo:provider id="profileDemoServiceProvider"
                     .......
                     filter="providerElapsedTimeFilter"
                     >
   
  --  消费方：
- <dubbo:consumer id="xhqbProfileDemoClientConsumer"
+ <dubbo:consumer id="profileDemoClientConsumer"
                     filter="consumerElapsedTimeFilter"                  
                          ........../>
 
@@ -88,7 +88,7 @@
 日志文件名为：dubbo-elapsedTimeFilter.xml.log...
 
 
-dubbo的标准配置见例子： xhqbProfile-demoService 项目（见上项目）
+dubbo的标准配置见例子： profile-demoService 项目（见上项目）
 配置的每个<dubbo:service> 都默认引用本地的一个  <dubbo:provider>  配置。
 配置的每个<dubbo:reference>都默认引用本地的一个 <dubbo:consumer/> 配置。
 （详细：[http://dubbo.io/](http://dubbo.io/))
@@ -103,12 +103,12 @@ dubbo的标准配置见例子： xhqbProfile-demoService 项目（见上项目�
 ```
 
     	<aop:aspectj-autoproxy proxy-target-class="true" />
-	<bean id="methodInvokeTimeAspect" class="com.xhqb.profile.spring.aop.method.MethodInvokeTimeAspect" />
+	<bean id="methodInvokeTimeAspect" class="com.doctor.profile.spring.aop.method.MethodInvokeTimeAspect" />
 
 	<aop:config>
 		<aop:aspect ref="methodInvokeTimeAspect">
 			<aop:pointcut id="methodInvokeTimePC"
-				expression=" (execution(public * com.xhqb.business.service.client.impl.*.*(..)) ) or  (execution(public * com.xhqb.business.service.impl.*.*(..)) )  " />
+				expression=" (execution(public * com.doctor.business.service.client.impl.*.*(..)) ) or  (execution(public * com.doctor.business.service.impl.*.*(..)) )  " />
 			<aop:around pointcut-ref="methodInvokeTimePC" method="profile" />
 		</aop:aspect>
 	</aop:config>
@@ -153,11 +153,11 @@ expression 换成自己的业务包名。
 ```
 
 消费者：
-10-09 19:52:15   main  INFO  com.xhqb.profile.dubbo.extend.filter.ConsumerElapsedTimeFilter -[a963b1b6-2b4d-43e4-8334-02d424aaa2e8] , [interface com.xhqb.profile.dubbo.service.DemoService], [getName], [ss, man], [返回值], [null], [10102ms]   
+10-09 19:52:15   main  INFO  com.doctor.profile.dubbo.extend.filter.ConsumerElapsedTimeFilter -[a963b1b6-2b4d-43e4-8334-02d424aaa2e8] , [interface com.doctor.profile.dubbo.service.DemoService], [getName], [ss, man], [返回值], [null], [10102ms]   
 
 
 生产者：
-10-09 19:52:15   DubboServerHandler-127.0.0.1:20880-thread-1 INFO  com.xhqb.profile.dubbo.extend.filter.ProviderElapsedTimeFilter -[a963b1b6-2b4d-43e4-8334-02d424aaa2e8|5193c0d3-212e-45dc-80dd-0e9775f5d21a] , [interface com.xhqb.profile.dubbo.service.DemoService], [getName], [ss, man], [返回值], [null], [10020ms]   
+10-09 19:52:15   DubboServerHandler-127.0.0.1:20880-thread-1 INFO  com.doctor.profile.dubbo.extend.filter.ProviderElapsedTimeFilter -[a963b1b6-2b4d-43e4-8334-02d424aaa2e8|5193c0d3-212e-45dc-80dd-0e9775f5d21a] , [interface com.doctor.profile.dubbo.service.DemoService], [getName], [ss, man], [返回值], [null], [10020ms]   
 
 ```
 
