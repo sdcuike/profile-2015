@@ -14,9 +14,4 @@
 # Maven
 log/
 target/
-
-
 catalina.home_IS_UNDEFINED/
-catalina.home_IS_UNDEFINED/ cd
-.directory
-.springBeans
