@@ -1,0 +1,24 @@
+<included>
+  <appender name="accessLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_LOG_HOME}/logs/${project_home}/accessLog.xml.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${APP_LOG_HOME}/logs/${project_home}/accessLog.xml.log.out.%d{yyyy-MM-dd}
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%X{uuid}]   %-16(%d{MM-dd HH:mm:ss}) %-5thread %-5level %logger -%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="com.xhqb.profile.request.filter" level="info" additivity="false" >  
+        <appender-ref ref="accessLogAppender" />  
+    </logger>
+	<logger name="com.xhqb.web.security" level="info" additivity="false" >  
+        <appender-ref ref="accessLogAppender" />  
+    </logger>
+    
+	<logger name="com.xhqb.web.security" level="info" additivity="false" >  
+        <appender-ref ref="accessLogAppender" />  
+    </logger>
+    
+</included>

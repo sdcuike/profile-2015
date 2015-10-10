@@ -1,0 +1,3 @@
+elapsedTimeFilter=com.xhqb.profile.dubbo.extend.filter.ElapsedTimeFilter
+providerElapsedTimeFilter=com.xhqb.profile.dubbo.extend.filter.ProviderElapsedTimeFilter
+consumerElapsedTimeFilter=com.xhqb.profile.dubbo.extend.filter.ConsumerElapsedTimeFilter
