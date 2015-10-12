@@ -5,6 +5,8 @@ import java.util.UUID;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 
+import com.alibaba.dubbo.common.Constants;
+import com.alibaba.dubbo.common.extension.Activate;
 import com.alibaba.dubbo.rpc.RpcInvocation;
 import com.doctor.profile.constant.DubboUrlParameter;
 import com.doctor.profile.constant.WebConstant;
@@ -16,7 +18,7 @@ import com.doctor.profile.constant.WebConstant;
  *
  * @time 2015年10月9日 下午3:36:05
  */
-// @Activate(group = { Constants.PROVIDER })
+@Activate(group = { Constants.PROVIDER })
 public class ProviderElapsedTimeFilter extends ElapsedTimeFilter {
 
 	@Override

@@ -3,6 +3,8 @@ package com.doctor.profile.dubbo.extend.filter;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 
+import com.alibaba.dubbo.common.Constants;
+import com.alibaba.dubbo.common.extension.Activate;
 import com.alibaba.dubbo.rpc.RpcInvocation;
 import com.doctor.profile.constant.DubboUrlParameter;
 
@@ -12,7 +14,7 @@ import com.doctor.profile.constant.DubboUrlParameter;
  *
  * @time 2015年10月9日 下午4:02:31
  */
-// @Activate(group = { Constants.CONSUMER })
+@Activate(group = { Constants.CONSUMER })
 public class ConsumerElapsedTimeFilter extends ElapsedTimeFilter {
 
 	@Override
