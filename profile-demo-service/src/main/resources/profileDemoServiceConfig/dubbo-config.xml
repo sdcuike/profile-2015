@@ -50,7 +50,6 @@
                     timeout="${profileDemoService.dubbo.provider.timeout}"
                     proxy="javassist"
                     delay="-1"
-                    filter="providerElapsedTimeFilter"
                     >
     </dubbo:provider>
 </beans>
