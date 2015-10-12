@@ -28,7 +28,7 @@ public class MethodInvokeTimeAspect {
 			long end = System.currentTimeMillis();
 
 			Object[] args = point.getArgs();
-			log.info("[{}],{},[{}], [{}ms] ", point, Arrays.toString(args), proceed, end - start);
+			log.info("[{}],{},[{}], [{}] ", point, Arrays.toString(args), proceed, end - start);
 		}
 
 	}

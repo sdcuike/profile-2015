@@ -37,7 +37,7 @@ public class ElapsedTimeFilter implements Filter {
 			// log.info("[" +invoker.getInterface() +"] [" + invocation.getMethodName() +"] [" + elapsed +"]" );
 			String appName = invoker.getUrl().getParameter(Constants.APPLICATION_KEY);
 
-			log.info("[{}],[{}] , [{}], [{}], {}, [{}], [{}], [{}ms]  ", appName, uuid, invoker.getInterface(), invocation.getMethodName(), Arrays.toString(invocation.getArguments()), result.getValue(), result.getException(), elapsed);
+			log.info("[{}],[{}] , [{}], [{}], {}, [{}], [{}], [{}]  ", appName, uuid, invoker.getInterface(), invocation.getMethodName(), Arrays.toString(invocation.getArguments()), result.getValue(), result.getException(), elapsed);
 		}
 
 		MDC.remove(WebConstant.requestId);
