@@ -50,7 +50,13 @@ public class AccessFilter implements Filter {
 
 		// boolean contains = Splitter.on("/").splitToList(httpServletRequest.getRequestURL().toString()).contains(staticResource);
 		String path = httpServletRequest.getRequestURL().toString();
-		boolean contains = WebConstant.staticResource.contains(path.substring(path.lastIndexOf(".")));
+		boolean contains = false;
+		if (path.lastIndexOf(".") == -1) {
+			contains = false;
+		} else {
+			contains = WebConstant.staticResource.contains(path.substring(path.lastIndexOf(".")));
+		}
+
 		if (contains == false) {
 			UUID userId = UserIdCookieManger.getUserId(httpServletRequest, (HttpServletResponse) response);
 
