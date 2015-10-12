@@ -16,6 +16,7 @@
         <module>profile-common</module>
         <module>profile-demo-service</module>
         <module>profile-demo-client</module>
+        <module>profile-demo-web</module>
     </modules>
 
     <properties>
@@ -246,53 +247,17 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
+                    <scanIntervalSeconds>8</scanIntervalSeconds>
+                    <httpConnector>
+                        <port>8090</port>
+                    </httpConnector>
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.0</version>
-            </plugin>
         </plugins>
     </build>
-
-
-    <profiles>
-        <profile>
-            <id>local</id>
-            <distributionManagement>
-                <repository>
-                    <id>dev-releases</id>
-                    <name>nexus-releases</name>
-                    <url>http://dev1.facash.com:8081/nexus/content/repositories/releases</url>
-                </repository>
-                <snapshotRepository>
-                    <id>dev-snapshots</id>
-                    <name>nexus-snapshots</name>
-                    <url>http://dev1.facash.com:8081/nexus/content/repositories/snapshots/</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>dev</id>
-            <distributionManagement>
-                <repository>
-                    <id>dev-releases</id>
-                    <name>nexus-releases</name>
-                    <url>http://devtools.facash.com:8081/nexus/content/repositories/releases</url>
-                </repository>
-                <snapshotRepository>
-                    <id>dev-snapshots</id>
-                    <name>nexus-snapshots</name>
-                    <url>http://devtools.facash.com:8081/nexus/content/repositories/snapshots/</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-    </profiles>
 
 </project>

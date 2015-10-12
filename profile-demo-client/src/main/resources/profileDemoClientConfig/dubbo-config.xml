@@ -9,12 +9,12 @@
 
     <description>doctor2015BusinessClient dubbo client</description>
 
-    <dubbo:application id="profileDemoClientApplication"
-                       name="${profileDemoClient.dubbo.application.name}"
-                       owner="${profileDemoClient.dubbo.application.owner}"
-                       organization="${profileDemoClient.dubbo.application.organization}"
-                       logger="slf4j"
-                       compiler="javassist"/>
+<!--     <dubbo:application id="profileDemoClientApplication" -->
+<!--                        name="${profileDemoClient.dubbo.application.name}" -->
+<!--                        owner="${profileDemoClient.dubbo.application.owner}" -->
+<!--                        organization="${profileDemoClient.dubbo.application.organization}" -->
+<!--                        logger="slf4j" -->
+<!--                        compiler="javassist"/> -->
     
                     
     <dubbo:registry id="profileDemoClientRegistry"
@@ -32,7 +32,6 @@
                     registry="profileDemoClientRegistry"
                     init="false"
                     check="${profileDemoClient.dubbo.consumer.check}"
-                    filter="consumerElapsedTimeFilter"
                     timeout="${profileDemoClient.dubbo.consumer.timeout}"
                     retries="0"/>
                  
